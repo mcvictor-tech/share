@@ -14,3 +14,7 @@ Format : Clairement structuré, précis, avec liens vers les fichiers.
 L'objectif est un aperçu complet et facile à comprendre pour la nouvelle IA. Commence par l'analyse de la codebase.
 
 
+git clone https://github.com/StephenZAST/Projet-Alpha.git .
+git checkout affiliers
+git checkout 
+cd ..
