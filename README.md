@@ -29,3 +29,8 @@ ok c'st pargfait pense tu que lon peut mettre a niveau d'autre page pour les ren
 tu est libre de lire les fichier et les analyser profondement pour comprendre leure logique methien les fonction ux pour que le nouveau design que tu va me propsoe reprennne les differente fonctonnalite permie par la page offer et ses composant tu comprend ?
 
 
+__________________
+
+
+git config --global user.name "StephenZAST"
+git config --global user.email "contacteasytec@gmail.com"
