@@ -31,6 +31,10 @@ tu est libre de lire les fichier et les analyser profondement pour comprendre le
 
 __________________
 
+token 
+
+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
+
 
 git config --global user.name "StephenZAST"
 git config --global user.email "contacteasytec@gmail.com"
