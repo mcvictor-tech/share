@@ -42,3 +42,57 @@ StephenZAST
 
 git config --global user.name "StephenZAST"
 git config --global user.email "contacteasytec@gmail.com"
+
+
+
+_____________________
+
+
+Copiez-collez et exécutez la commande suivante dans la fenêtre PowerShell (Admin) :
+
+
+Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; `
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+
+___________
+
+
+Ouvrez PowerShell en Administrateur et exécutez :
+
+$chocopath = 'C:\ProgramData\chocolatey\bin'
+[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $chocopath, [EnvironmentVariableTarget]::Machine)
+
+
+_____________
+
+
+Installer Git et Node.js LTS avec Chocolatey
+Dans PowerShell (vous pouvez être en session non-admin si choco fonctionne ; choco demandera l’élévation si nécessaire) :
+
+
+
+choco install git -y
+
+
+
+_____________________
+
+
+
+Commande pour ajouter ces dossiers au PATH système :
+
+
+
+$pathsToAdd = @('C:\Program Files\nodejs','C:\Program Files\Git\cmd')
+$current = [Environment]::GetEnvironmentVariable('Path',[EnvironmentVariableTarget]::Machine)
+foreach($p in $pathsToAdd) {
+  if (-not ($current.Split(';') -contains $p)) { $current += ';' + $p }
+}
+[Environment]::SetEnvironmentVariable('Path',$current,[EnvironmentVariableTarget]::Machine)
+
+
+
+
+choco install nodejs-lts -y
