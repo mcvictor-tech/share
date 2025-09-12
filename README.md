@@ -35,6 +35,10 @@ token
 
 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
 
+&E(;ixZ8msayQ+*$
+
+StephenZAST
+
 
 git config --global user.name "StephenZAST"
 git config --global user.email "contacteasytec@gmail.com"
