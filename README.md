@@ -222,3 +222,6 @@ user_edit_dialog.dart - Édition
 address_edit_dialog.dart - Adresses
 map_selection_dialog.dart - Géolocalisation
 Cette architecture est moderne, maintenable et performante ! 🚀
+
+
+faire des ajusterment sur certaine partie du daschboard analytique de notre page accueille du dashboard qui a besoin de mise a niveau a bien des endroit je vait ajouter chaque fichier en chontext pour ta propose comprehension des componan
