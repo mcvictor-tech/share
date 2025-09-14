@@ -51,6 +51,7 @@ _____________________
 Copiez-collez et exécutez la commande suivante dans la fenêtre PowerShell (Admin) :
 
 
+
 Set-ExecutionPolicy Bypass -Scope Process -Force; `
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12; `
 iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
@@ -60,9 +61,13 @@ ___________
 
 
 Ouvrez PowerShell en Administrateur et exécutez :
+ajout de Chocolatey au PATH
 
-$chocopath = 'C:\ProgramData\chocolatey\bin'
-[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $chocopath, [EnvironmentVariableTarget]::Machine)
+
+
+$chocopath = 'C:\ProgramData\chocolatey\bin';
+[Environment]::SetEnvironmentVariable('Path', $env:Path + ';' + $chocopath, [EnvironmentVariableTarget]::Machine);
+
 
 
 _____________
@@ -76,6 +81,7 @@ Dans PowerShell (vous pouvez être en session non-admin si choco fonctionne ; ch
 choco install git -y
 
 
+choco install nodejs-lts -y
 
 _____________________
 
@@ -85,17 +91,33 @@ Commande pour ajouter ces dossiers au PATH système :
 
 
 
-$pathsToAdd = @('C:\Program Files\nodejs','C:\Program Files\Git\cmd')
-$current = [Environment]::GetEnvironmentVariable('Path',[EnvironmentVariableTarget]::Machine)
-foreach($p in $pathsToAdd) {
-  if (-not ($current.Split(';') -contains $p)) { $current += ';' + $p }
+ajout de Node.js et Git au PATH
+
+$pathsToAdd = @('C:\Program Files\nodejs','C:\Program Files\Git\cmd');
+$current = [Environment]::GetEnvironmentVariable('Path',[EnvironmentVariableTarget]::Machine);
+foreach ($p in $pathsToAdd) {
+    if (-not ($current.Split(';') -contains $p)) {
+        $current += ';' + $p;
+    }
 }
-[Environment]::SetEnvironmentVariable('Path',$current,[EnvironmentVariableTarget]::Machine)
+[Environment]::SetEnvironmentVariable('Path', $current, [EnvironmentVariableTarget]::Machine);
+
+
+
+Si tu veux juste ajouter le dossier Node.js au PATH système
 
 
 
 
-choco install nodejs-lts -y
+$nodePath = 'C:\Program Files\nodejs';
+$current = [Environment]::GetEnvironmentVariable('Path',[EnvironmentVariableTarget]::Machine);
+if (-not ($current.Split(';') -contains $nodePath)) {
+    $current += ';' + $nodePath;
+    [Environment]::SetEnvironmentVariable('Path', $current, [EnvironmentVariableTarget]::Machine);
+}
+
+
+
 
 
 
